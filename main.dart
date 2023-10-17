@@ -35,3 +35,26 @@ class StatelessColorfulTile extends StatelessWidget {
        color: myColor, child: Padding(padding: EdgeInsets.all(70.0)));
  }
 }
+// کلاس برای رنگ به صورت تصادفی
+class UniqueColorGenerator {
+  static List colorOptions = [
+    Colors.blue,
+    Colors.red,
+    Colors.green,
+    Colors.yellow,
+    Colors.purple,
+    Colors.orange,
+    Colors.indigo,
+    Colors.amber,
+    Colors.black,
+  ];
+  static Random random = new Random();
+  static Color getColor() {
+    if (colorOptions.length > 0) {
+      return colorOptions.removeAt(random.nextInt(colorOptions.length));
+    } else {
+      return Color.fromARGB(random.nextInt(256), random.nextInt(256),
+          random.nextInt(256), random.nextInt(256));
+    }
+  }
+}
